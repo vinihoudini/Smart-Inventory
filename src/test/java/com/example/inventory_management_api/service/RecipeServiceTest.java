@@ -30,7 +30,7 @@ public class RecipeServiceTest {
 
         Mockito.when(recipeRepository.save(any(Recipe.class))).thenReturn(recipe);
 
-        Recipe savedRecipe = recipeService.create(recipe);  // Corrigido: de createRecipe para create
+        Recipe savedRecipe = recipeService.create(recipe);
         assertNotNull(savedRecipe);
         assertEquals("Pasta", savedRecipe.getName());
     }
@@ -43,7 +43,7 @@ public class RecipeServiceTest {
 
         Mockito.when(recipeRepository.findById(1L)).thenReturn(Optional.of(recipe));
 
-        Recipe foundRecipe = recipeService.findById(1L);  // Corrigido: de getRecipeById para findById
+        Recipe foundRecipe = recipeService.findById(1L);
         assertNotNull(foundRecipe);
         assertEquals("Salad", foundRecipe.getName());
     }
@@ -60,7 +60,7 @@ public class RecipeServiceTest {
         Mockito.when(recipeRepository.findById(1L)).thenReturn(Optional.of(existingRecipe));
         Mockito.when(recipeRepository.save(any(Recipe.class))).thenReturn(existingRecipe);
 
-        Recipe updatedRecipe = recipeService.update(updatedDetails);  // Corrigido: de updateRecipe para update
+        Recipe updatedRecipe = recipeService.update(updatedDetails);
         assertEquals("Updated Soup", updatedRecipe.getName());
     }
 
@@ -68,7 +68,7 @@ public class RecipeServiceTest {
     public void testDeleteRecipe() {
         Mockito.doNothing().when(recipeRepository).deleteById(1L);
 
-        assertDoesNotThrow(() -> recipeService.delete(1L));  // Corrigido: de deleteRecipe para delete
+        assertDoesNotThrow(() -> recipeService.delete(1L));
         Mockito.verify(recipeRepository, Mockito.times(1)).deleteById(1L);
     }
 }

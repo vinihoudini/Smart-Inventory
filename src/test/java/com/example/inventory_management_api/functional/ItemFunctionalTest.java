@@ -21,7 +21,6 @@ public class ItemFunctionalTest {
 
     @Test
     public void testItemLifecycle() throws Exception {
-        // Create an item
         Item item = new Item();
         item.setName("TV");
         item.setQuantity(1);
@@ -32,13 +31,11 @@ public class ItemFunctionalTest {
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.name").value("TV"));
 
-        // Retrieve the item by ID
         mockMvc.perform(get("/items/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("TV"));
 
-        // Update the item
         item.setName("Updated TV");
 
         mockMvc.perform(put("/items/1")
@@ -47,7 +44,6 @@ public class ItemFunctionalTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("Updated TV"));
 
-        // Delete the item
         mockMvc.perform(delete("/items/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNoContent());

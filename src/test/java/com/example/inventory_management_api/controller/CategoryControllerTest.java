@@ -29,7 +29,6 @@ public class CategoryControllerTest {
         category.setName("Electronics");
         category.setDescription("Devices and gadgets");
 
-        // Altere para o método correto: createCategory()
         Mockito.when(categoryService.createCategory(Mockito.any(Category.class))).thenReturn(category);
 
         mockMvc.perform(post("/categories")
@@ -46,7 +45,6 @@ public class CategoryControllerTest {
         category.setName("Electronics");
         category.setDescription("Devices and gadgets");
 
-        // Altere para o método correto: getCategoryById()
         Mockito.when(categoryService.getCategoryById(1L)).thenReturn(category);
 
         mockMvc.perform(get("/categories/1")

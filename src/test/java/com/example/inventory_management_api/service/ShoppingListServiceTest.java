@@ -34,16 +34,14 @@ public class ShoppingListServiceTest {
         ShoppingList updatedDetails = new ShoppingList();
         updatedDetails.setName("Updated Groceries");
 
-        // Supondo que você tenha uma lista de itens, ajuste conforme necessário
         List<Item> newItems = new ArrayList<>();
-        // Adicione itens à lista, se necessário
-        updatedDetails.setItemsToBuy(newItems);  // Usando `setItemsToBuy`
+        updatedDetails.setItemsToBuy(newItems);
 
         Mockito.when(shoppingListRepository.findById(1L)).thenReturn(Optional.of(existingShoppingList));
         Mockito.when(shoppingListRepository.save(any(ShoppingList.class))).thenReturn(existingShoppingList);
 
         ShoppingList updatedShoppingList = shoppingListService.update(1L, updatedDetails);
         assertEquals("Updated Groceries", updatedShoppingList.getName());
-        assertEquals(newItems, updatedShoppingList.getItemsToBuy());  // Usando `getItemsToBuy`
+        assertEquals(newItems, updatedShoppingList.getItemsToBuy());
     }
 }

@@ -21,7 +21,6 @@ public class CategoryFunctionalTest {
 
     @Test
     public void testCategoryLifecycle() throws Exception {
-        // Create a category
         Category category = new Category();
         category.setName("Groceries");
         category.setDescription("Daily essentials");
@@ -32,13 +31,11 @@ public class CategoryFunctionalTest {
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.name").value("Groceries"));
 
-        // Retrieve the category by ID
         mockMvc.perform(get("/categories/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("Groceries"));
 
-        // Update the category
         category.setName("Updated Groceries");
 
         mockMvc.perform(put("/categories/1")
@@ -47,7 +44,6 @@ public class CategoryFunctionalTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("Updated Groceries"));
 
-        // Delete the category
         mockMvc.perform(delete("/categories/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNoContent());

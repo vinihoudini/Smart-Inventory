@@ -23,13 +23,11 @@ public class UserFunctionalTest {
 
     @Test
     public void testUserLifecycle() throws Exception {
-        // Step 1: Create a user
         User user = new User();
         user.setUsername("functionalUser");
         user.setEmail("functional@example.com");
         user.setPassword("password");
 
-        // Executar o POST e capturar o resultado
         MvcResult result = mockMvc.perform(post("/users")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(user)))
@@ -37,17 +35,14 @@ public class UserFunctionalTest {
                 .andExpect(jsonPath("$.username").value("functionalUser"))
                 .andReturn();
 
-        // Extrair o ID do usuário criado
         String responseBody = result.getResponse().getContentAsString();
         Long userId = JsonPath.parse(responseBody).read("$.id", Long.class);
 
-        // Step 2: Retrieve the user by the extracted ID
         mockMvc.perform(get("/users/" + userId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.username").value("functionalUser"));
 
-        // Step 3: Update the user
         user.setUsername("updatedFunctionalUser");
 
         mockMvc.perform(put("/users/" + userId)
@@ -56,7 +51,6 @@ public class UserFunctionalTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.username").value("updatedFunctionalUser"));
 
-        // Step 4: Delete the user
         mockMvc.perform(delete("/users/" + userId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNoContent());

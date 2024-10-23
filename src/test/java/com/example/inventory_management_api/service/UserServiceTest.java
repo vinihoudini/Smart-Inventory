@@ -117,7 +117,7 @@ public class UserServiceTest {
         Mockito.when(userRepository.save(any(User.class))).thenReturn(user);
 
         User createdUser = userService.create(user);
-        assertNotEquals("plainPassword", createdUser.getPassword()); // Password should be encrypted
+        assertNotEquals("plainPassword", createdUser.getPassword());
     }
 
     @Test
@@ -131,9 +131,8 @@ public class UserServiceTest {
 
     @Test
     public void testUserRepositorySave() {
-        // Criação de um objeto User com um nome de usuário válido
         User user = new User();
-        user.setUsername("testUser"); // Definindo o nome de usuário
+        user.setUsername("testUser");
         user.setEmail("test@example.com");
         user.setPassword("password");
 
