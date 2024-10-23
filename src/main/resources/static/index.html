@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Gestão de Inventário</title>
+</head>
+<body>
+<h1>Gestão de Inventário</h1>
+
+<div class="container">
+    <div class="section">
+        <h2>Criar Usuário</h2>
+        <form id="userForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button type="submit">Criar Usuário</button>
+        </form>
+        <button id="updateUserBtn">Atualizar Usuário</button>
+        <button id="deleteUserBtn">Deletar Usuário</button>
+        <button id="searchUserBtn">Pesquisar Usuário</button>
+    </div>
+
+    <div class="section">
+        <h2>Categorias</h2>
+        <form id="categoryForm">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="text" id="description" placeholder="Description" required>
+            <button type="submit">Criar Categoria</button>
+        </form>
+        <button id="updateCategoryBtn">Atualizar Categoria</button>
+        <button id="deleteCategoryBtn">Deletar Categoria</button>
+        <button id="searchCategoryBtn">Pesquisar Categoria</button>
+        <ul id="categoryList"></ul>
+    </div>
+
+    <div class="section">
+        <h2>Itens</h2>
+        <form id="itemForm">
+            <input type="text" id="itemName" placeholder="Nome do Item" required>
+            <input type="number" id="itemQuantity" placeholder="Quantidade" required>
+            <input type="text" id="itemCategoryId" placeholder="ID da Categoria" required>
+            <button type="submit">Criar Item</button>
+        </form>
+        <button id="updateItemBtn">Atualizar Item</button>
+        <button id="deleteItemBtn">Deletar Item</button>
+        <ul id="itemList"></ul>
+    </div>
+
+    <div class="section">
+        <h2>Logs de Inventário</h2>
+        <form id="inventoryLogForm">
+            <input type="text" id="logItemId" placeholder="ID do Item" required>
+            <input type="number" id="logQuantity" placeholder="Quantidade" required>
+            <input type="text" id="logDescription" placeholder="Descrição" required>
+            <button type="submit">Criar Log</button>
+        </form>
+        <button id="updateLogBtn">Atualizar Log</button>
+        <button id="deleteLogBtn">Deletar Log</button>
+        <ul id="inventoryLogList"></ul>
+    </div>
+
+    <div class="section">
+        <h2>Alertas</h2>
+        <form id="alertForm">
+            <input type="text" id="alertDescription" placeholder="Descrição do Alerta" required>
+            <input type="text" id="alertItemId" placeholder="ID do Item" required>
+            <button type="submit">Criar Alerta</button>
+        </form>
+        <button id="updateAlertBtn">Atualizar Alerta</button>
+        <button id="deleteAlertBtn">Deletar Alerta</button>
+        <ul id="alertList"></ul>
+    </div>
+
+    <div class="section">
+        <h2>Receitas</h2>
+        <form id="recipeForm">
+            <input type="text" id="recipeName" placeholder="Nome da Receita" required>
+            <input type="text" id="recipeIngredients" placeholder="Ingredientes" required>
+            <input type="text" id="recipeInstructions" placeholder="Instruções" required>
+            <button type="submit">Criar Receita</button>
+        </form>
+        <button id="updateRecipeBtn">Atualizar Receita</button>
+        <button id="deleteRecipeBtn">Deletar Receita</button>
+        <ul id="recipeList"></ul>
+    </div>
+
+    <div class="section">
+        <h2>Pedidos</h2>
+        <form id="orderForm">
+            <input type="text" id="orderItemId" placeholder="ID do Item" required>
+            <input type="number" id="orderQuantity" placeholder="Quantidade" required>
+            <button type="submit">Criar Pedido</button>
+        </form>
+        <button id="updateOrderBtn">Atualizar Pedido</button>
+        <button id="deleteOrderBtn">Deletar Pedido</button>
+        <ul id="orderList"></ul>
+    </div>
+
+    <div class="section">
+        <h2>Listas de Compras</h2>
+        <form id="shoppingListForm">
+            <input type="text" id="shoppingListItemId" placeholder="ID do Item" required>
+            <input type="number" id="shoppingListQuantity" placeholder="Quantidade" required>
+            <button type="submit">Criar Lista de Compras</button>
+        </form>
+        <button id="updateShoppingListBtn">Atualizar Lista de Compras</button>
+        <button id="deleteShoppingListBtn">Deletar Lista de Compras</button>
+        <ul id="shoppingList"></ul>
+    </div>
+
+    <div class="section">
+        <h2>Locais de Armazenamento</h2>
+        <form id="storageLocationForm">
+            <input type="text" id="storageLocationName" placeholder="Nome do Local" required>
+            <button type="submit">Criar Local de Armazenamento</button>
+        </form>
+        <button id="updateStorageLocationBtn">Atualizar Local de Armazenamento</button>
+        <button id="deleteStorageLocationBtn">Deletar Local de Armazenamento</button>
+        <ul id="storageLocationList"></ul>
+    </div>
+</div>
+
+<div id="alertBox" class="alert-box" style="display:none;"></div>
+<div id="confirmationBox" class="confirmation-box" style="display:none;"></div>
+<div id="searchBox" class="search-box" style="display:none;"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

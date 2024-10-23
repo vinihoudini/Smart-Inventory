@@ -1,0 +1,77 @@
+@startuml
+
+class User {
+  Long id
+  String name
+  String email
+  String password
+}
+
+class Item {
+  Long id
+  String name
+  Integer quantity
+  LocalDate expirationDate
+  StorageLocation storageLocation
+  Category category
+}
+
+class Category {
+  Long id
+  String name
+}
+
+class ShoppingList {
+  Long id
+  String name
+  List<Item> items
+}
+
+class StorageLocation {
+  Long id
+  String name
+  String description
+}
+
+class Alert {
+  Long id
+  String message
+  LocalDate alertDate
+  Item item
+}
+
+class InventoryLog {
+  Long id
+  String action
+  LocalDateTime timestamp
+  User user
+  Item item
+}
+
+class Recipe {
+  Long id
+  String name
+  String description
+  List<Item> ingredients
+}
+
+class Order {
+  Long id
+  String orderNumber
+  LocalDate orderDate
+  List<Item> items
+  User user
+}
+
+User "1" -- "many" ShoppingList
+ShoppingList "many" -- "many" Item
+Item "many" -- "1" Category
+Item "many" -- "1" StorageLocation
+Item "1" -- "many" Alert
+Item "1" -- "many" InventoryLog
+User "1" -- "many" InventoryLog
+Recipe "many" -- "many" Item
+Order "many" -- "many" Item
+Order "many" -- "1" User
+
+@enduml

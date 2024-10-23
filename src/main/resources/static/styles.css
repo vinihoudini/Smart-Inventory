@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+h2 {
+    color: #555;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que as seções se movam para a linha seguinte se não houver espaço suficiente */
+    justify-content: space-between; /* Espalha as seções uniformemente */
+}
+
+.section {
+    border: 1px solid #ccc; /* Borda para destacar as seções */
+    border-radius: 5px; /* Cantos arredondados */
+    padding: 15px; /* Espaçamento interno */
+    margin: 10px; /* Espaçamento externo */
+    flex: 1 1 30%; /* Permite que as seções ocupem pelo menos 30% da largura */
+    min-width: 250px; /* Largura mínima das seções */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input {
+    display: block;
+    margin: 5px 0;
+    padding: 10px;
+    width: 100%; /* Ajuste para ocupar 100% da largura da seção */
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.alert-box {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #28a745; /* Cor de fundo verde */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Estilos existentes aqui */
+
+.confirmation-box {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff; /* Cor de fundo azul */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.search-box {
+    position: fixed;
+    top: 20px;
+    right: 10px;
+    background-color: #ffc107; /* Cor de fundo amarela */
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
